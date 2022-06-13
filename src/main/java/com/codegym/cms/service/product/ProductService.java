@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class ProductService implements IProductService{
+public class ProductService implements IProductService {
     @Autowired
     private IProducRepository producRepository;
+
     @Override
     public Iterable<Product> findAll() {
         return producRepository.findAll();
@@ -35,5 +36,15 @@ public class ProductService implements IProductService{
     @Override
     public Iterable<Product> findAllByCategory(Category category) {
         return producRepository.findAllByCategory(category);
+    }
+
+    @Override
+    public Iterable<Product> findAllByNameContaining(String name) {
+        return producRepository.findAllByNameContaining(name);
+    }
+
+    @Override
+    public Iterable<Product> findByName(String name) {
+        return producRepository.findByName(name);
     }
 }

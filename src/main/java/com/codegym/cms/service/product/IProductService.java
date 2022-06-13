@@ -6,4 +6,7 @@ import com.codegym.cms.service.IGeneralService;
 
 public interface IProductService extends IGeneralService<Product> {
     Iterable<Product> findAllByCategory(Category category);
+    Iterable<Product> findAllByNameContaining(String name);
+
+    Iterable<Product> findByName(String name);
 }

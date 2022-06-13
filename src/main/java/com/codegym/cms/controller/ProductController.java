@@ -62,4 +62,10 @@ public class ProductController {
         productService.remove(id);
         return new ResponseEntity<>(customerOptional.get(), HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<Iterable<Product>> findAllByName(@RequestParam("name") String name) {
+        List<Product> products = (List<Product>) productService.findByName(name);
+        return new ResponseEntity<>(products, HttpStatus.OK);
+    }
 }

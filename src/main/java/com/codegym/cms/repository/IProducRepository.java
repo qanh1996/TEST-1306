@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IProducRepository extends PagingAndSortingRepository<Product,Long> {
     Iterable<Product> findAllByCategory(Category category);
+    Iterable<Product> findAllByNameContaining(String name);
+
+    Iterable<Product> findByName(String name);
 }
